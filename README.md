@@ -1,86 +1,35 @@
-# ORM Starter Application for Angel3 framework
+# Teste do Angel
 
-This is an ORM starter application for [Angel3 framework](https://angel3-framework.web.app) which is a full-stack Web framework in Dart. The default database is MariaDB. MySQL support is still in active development.
+Este é um projeto de teste simples usando o framework Angel.
 
-## Installation & Setup
+## Pré-requisitos
 
-1. Download and install [Dart](https://dart.dev/get-dart).
-2. Install `MariaDB` 10.2.x or later
-3. Create a new user and database using MySQL Client. For example:
+Certifique-se de ter o Dart SDK instalado em sua máquina. Para mais informações, consulte a documentação oficial do Dart: [Dart SDK](https://dart.dev/get-dart).
 
-   ```sql
-    MariaDB [(none)]> CREATE DATABASE appdb;
-    MariaDB [(none)]> CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'App1970#';
-    MariaDB [(none)]> GRANT ALL PRIVILEGES ON appdb.* TO 'appuser'@'localhost';
-   ```
+## Instalação
 
-4. Update the `mariadb` section in the `config/default.yaml` file with the newly created user and database name.
+ Clone este repositório em sua máquina local:
 
-   ```yaml
-    mariadb:
-        host: localhost
-        port: 3306
-        database_name: appdb
-        username: appuser
-        password: App1970#
-   ```
+```
+git clone https://github.com/seu-usuario/teste-angel.git
+```
 
-5. Run the migration to generate `migrations` and `greetings` tables in the database.
 
-    ```bash
-    dart bin/migrate.dart up
-    ```
+ Acesse o diretório do projeto:
+```
+cd teste-angel
+```
+csharp
 
-### Development
 
-1. Run the following command to start Angel3 server in dev mode to *hot-reloaded* on file changes:
+ Instale as dependências do projeto:
 
-    ```bash
-    dart --observe bin/dev.dart
-    ```
+```
+dart pub get
+```
+## Executando o projeto
 
-2. Modify the code and watch the changes applied to the application
-
-3. Insert a message into DB:
-
-    ```bash
-    curl -H "Content-Type: application/json" -X POST -d '{"message":"OK_Message" }' "http://localhost:3000/greetings/"
-    ```
-
-    or
-
-    ```bash
-    curl -X POST -d 'message=OK_Message2' "http://localhost:3000/greetings/"
-    ```
-
-4. Query DB:
-
-    ```bash
-    curl http://localhost:3000/greetings/
-    ```
-
-### Production
-
-1. Run the following command:
-
-    ```bash
-    dart bin/prod.dart
-    ```
-
-2. Run as docker. Edit and run the provided `Dockerfile` to build the image.
-
-### Building ORM Model
-
-1. Run the followig command:
-
-    ```bash
-    dart run build_runner build
-    ```
-
-## Resources
-
-Visit the [Developer Guide](https://angel3-docs.dukefirehawk.com/guides) for dozens of guides and resources, including video tutorials, to get up and running as quickly as possible with Angel3.
-
-Examples and complete projects can be found [here](https://angel3-framework.web.app/#/examples).
-
-You can also view the [API Documentation](https://pub.dev/documentation/angel3_framework/latest/).
+Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
+```
+dart run bin/main.dart
+```
